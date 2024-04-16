@@ -1,0 +1,41 @@
+workspace = { members = ["entity"] }
+[package]
+name = "rust-app"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+entity = { path = "entity" }
+migration = { path = "migration" }
+actix-cors = "0.7.0"
+actix-web = "4.5.1"
+dotenv = "0.15.0"
+thiserror = "1.0.58"
+serde = {version = "1.0.197", features = ["derive"]}
+utoipa = {version = "4.2.0", features = ["actix_extras"]}
+serde_json = "1.0.115"
+jwt = "0.16.0"
+sha2 = "0.10.8"
+hmac = "0.12.1"
+hex = "0.4.3"
+log = "0.4.21"
+pretty_env_logger = "0.5.0"
+actix-extensible-rate-limit = {version = "0.3.1", default-features = false, features = ["dashmap"]}
+sqlx-core = "0.7.4"
+
+
+[dependencies.sea-orm]
+version = "1.0.0-rc.3" # sea-orm version
+features = [
+    "debug-print",
+    "runtime-async-std-native-tls",
+    # "sqlx-mysql",
+    "sqlx-postgres",
+    # "sqlx-sqlite",
+]
+
+[dev-dependencies]
+tokio = { version = "1.37.0", features = ["macros", "rt"] }
+
