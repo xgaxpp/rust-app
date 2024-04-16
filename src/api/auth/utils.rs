@@ -91,6 +91,7 @@ pub async fn get_user_by_username_and_password(
 }
 
 /// Extract the token from the request header.
+#[warn(dead_code)]
 pub fn extract_token(req: &HttpRequest) -> ApiResult<String> {
     req.headers()
         .get("Authorization")
@@ -102,6 +103,7 @@ pub fn extract_token(req: &HttpRequest) -> ApiResult<String> {
 }
 
 /// Return user model by given request
+#[warn(dead_code)]
 pub async fn req_auth(req: HttpRequest, db: &DatabaseConnection) -> ApiResult<UserModel> {
     let token = extract_token(&req)?;
 
